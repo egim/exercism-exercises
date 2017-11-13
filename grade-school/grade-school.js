@@ -1,23 +1,54 @@
-function School(){
-  this.roster = {}
-}
+/*
+ * ES6 Class based
+ */
+'use strict'
 
-School.prototype.roster = function(){
-  return this.roster
-}
-
-School.prototype.add = function(name, grade){
-  if(this.roster[grade]){
-    this.roster[grade].push(name)
-    this.roster[grade].sort()
+class School{
+  constructor(){
+    this.student_roster = {}
   }
-  else{
-    this.roster[grade] = [name]
+  roster() {
+    return this.student_roster
   }
-}
-
-School.prototype.grade = function(grade){
-  return this.roster[grade] || []
+  add(name, grade) {
+    if(this.student_roster[grade]){
+      this.student_roster[grade].push(name)
+      this.student_roster[grade].sort()
+    }
+    else{
+      this.student_roster[grade] = [name]
+    }
+  }
+  grade(grade) {
+    return this.student_roster[grade] || []
+  }
 }
 
 module.exports = School;
+
+/*
+ * Implementation without ES6 Syntax Sugar
+ */
+// function School(){
+//   this.roster = {}
+// }
+//
+// School.prototype.roster = function(){
+//   return this.roster
+// }
+//
+// School.prototype.add = function(name, grade){
+//   if(this.roster[grade]){
+//     this.roster[grade].push(name)
+//     this.roster[grade].sort()
+//   }
+//   else{
+//     this.roster[grade] = [name]
+//   }
+// }
+//
+// School.prototype.grade = function(grade){
+//   return this.roster[grade] || []
+// }
+//
+// module.exports = School;
